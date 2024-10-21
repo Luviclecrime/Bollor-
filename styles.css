@@ -1,0 +1,99 @@
+/* styles.css */
+
+/* Personnalisation du marquee */
+marquee {
+  color: white;
+  background-color: #1a73e8;
+  font-size: 24px;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  font-family: Arial, sans-serif;
+  text-transform: uppercase;
+}
+
+.titre {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.swiper-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Style des boutons */
+.menu {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+button {
+  background-color: #1a73e8;
+  border-radius: 20px;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: red;
+}
+
+/* Style pour le messagebox */
+.messagebox {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  padding: 20px;
+  width: 300px;
+}
+
+.messagebox h5 {
+  color: #333;
+}
+
+.messagebox .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  color: #ff0000;
+}
+
+.messagebox .buy-button {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Style pour l'arrière-plan du messagebox */
+.messagebox-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+}
+
+/* Autres styles... */

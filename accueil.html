@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello, World!</title>
+  
+  <!-- Intégration de Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Intégration de Swiper.js (pour le défilement d'images) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+  <style>
+    /* Personnalisation du marquee */
+    marquee {
+      color: white;
+      background-color: #1a73e8;
+      font-size: 24px;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+      font-family: Arial, sans-serif;
+      text-transform: uppercase;
+    }
+
+    .titre {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    /* Conteneur Swiper pour les images */
+    .swiper-container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .swiper-slide img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Ajustement pour petits écrans */
+    @media (max-width: 576px) {
+      marquee {
+        font-size: 18px;
+      }
+    }
+
+    /* Style des boutons */
+    .menu {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+      margin-top: 20px;
+    }
+
+    button {
+      background-color: #1a73e8;
+      border-radius: 20px;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: red;
+    }
+
+    /* Animation et style pour la bande d'annonce ma2 */
+    .ma2 {
+      display: block;
+      color: #fff;
+      background-color: #ff5722;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 20px;
+      text-transform: uppercase;
+      font-family: 'Arial', sans-serif;
+      margin-top: 20px;
+      animation: slide-left 10s infinite linear;
+    }
+
+    @keyframes slide-left {
+      from {
+        transform: translateX(100%);
+      }
+      to {
+        transform: translateX(-100%);
+      }
+    }
+
+    /* Style pour les affichages de bol */
+    .bol-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .bol-container img {
+      max-width: 120px;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .bol-details {
+      margin-left: 20px;
+    }
+
+    h5, h7 {
+      color: #00bfff; /* Bleu ciel */
+    }
+
+    h6 {
+      font-size: 14px; /* Taille réduite pour éviter le défilement */
+    }
+
+    /* Style pour le bouton d'achat */
+    .buy-button {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .buy-button button {
+      background-color: #1a73e8;
+      color: white;
+      padding: 10px 30px;
+      border-radius: 50px;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+    }
+
+    .buy-button button:hover {
+      background-color: red;
+    }
+
+    .buy-button button i {
+      margin-right: 10px;
+    }
+
+    /* Styles pour le modal */
+    .modal-content {
+      padding: 20px;
+    }
+.service {
+    border: 5px solid blue; /* Bordure de 5px avec contour bleu */
+    border-radius: 50%; /* Bordure totalement ronde */
+    position: absolut; /* Rend l'image fixe à l'écran */
+    bottom: 200px; /* Pousse l'image vers le bas */
+    right: 10px; /* Pousse l'image vers la droite */
+    z-index: 10; /* Assure que l'image reste au-dessus des autres éléments */
+}
+  body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden; /* Empêche le défilement horizontal */
+}
+  </style>
+</head>
+<body>
+  <a href="https://t.me/Bolloreinvest"><img src="service.png" height="65px" width="65px" class="service"></a>
+
+  <!-- Positionnement des boutons en haut -->
+  <div class="menu">
+    <a href="recharge.html"><button>Recharger</button></a>
+    <a href="retrait .html"><button>Retrait</button></a>
+    <a href="partager.html"><button>Partager</button></a>
+  </div>
+
+  <div class="container">
+    <div class="titre">
+      <marquee><b>Bienvenue à Bolloré</b></marquee>
+    </div>
+
+    <!-- Conteneur pour les images défilantes avec Swiper.js -->
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="1.jpg" alt="Image 1">
+        </div>
+        <div class="swiper-slide">
+          <img src="2.jpg" alt="Image 2">
+        </div>
+        <div class="swiper-slide">
+          <img src="3.jpg" alt="Image 3">
+        </div>
+      </div>
+
+      <!-- Ajouter les boutons de navigation -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+    
+  </div><br>
+  
+  <!-- Bande d'annonce -->
+  <div class="ma2">Bolloré plans d'investissement</div>
+  <br>
+
+  <!-- Affichage de bol1 avec les détails à droite -->
+  <div class="bol-container" id="bol1-container">
+    <img src="a1.jpg" alt="bol1 image">
+    <div class="bol-details">
+      <h5>bol1</h5>
+      <h6>prix: <h7>6 000XAF</h7></h6>
+      <h6>durée: <h7>40jrs</h7></h6>
+      <h6>revenu: <h7>250XAF</h7></h6>
+      <h6>revenu total: <h7>11 000XAF</h7></h6>
+    </div>
+  </div>
+  <div class="buy-button">
+    <button onclick="openModal('bol1', 6000, 'a1.jpg')">
+      <i class="bi bi-cart"></i> Acheter le bol1 maintenant
+    </button>
+  </div>
+
+  <!-- Répéter pour les autres bol -->
+  <div class="bol-container" id="bol2-container">
+    <img src="a3.jpg" alt="bol2 image">
+    <div class="bol-details">
+      <h5>bol2</h5>
+      <h6>prix: <h7>15 000XAF</h7></h6>
+      <h6>durée: <h7>40jrs</h7></h6>
+      <h6>revenu: <h7>600XAF</h7></h6>
+      <h6>revenu total: <h7>24 000XAF</h7></h6>
+    </div>
+  </div>
+  <div class="buy-button">
+    <button onclick="openModal('bol2', 15000, 'a3.jpg')">
+      <i class="bi bi-cart"></i> Acheter le bol2 maintenant
+    </button>
+  </div>
+
+  <div class="bol-container" id="bol3-container">
+    <img src="a2.png" alt="bol3 image">
+    <div class="bol-details">
+      <h5>bol3</h5>
+      <h6>prix: <h7>30 000XAF</h7></h6>
+      <h6>durée: <h7>40jrs</h7></h6>
+      <h6>revenu: <h7>1050XAF</h7></h6>
+      <h6>revenu total: <h7>42 000XAF</h7></h6>
+    </div>
+  </div>
+  <div class="buy-button">
+    <button onclick="openModal('bol3', 30000, 'a2.png')">
+      <i class="bi bi-cart"></i> Acheter le bol3 maintenant
+    </button>
+  </div>
+
+  <div class="bol-container" id="bol4-container">
+    <img src="a4.jpeg" alt="bol4 image">
+    <div class="bol-details">
+      <h5>bol4</h5>
+      <h6>prix: <h7>40 000XAF</h7></h6>
+      <h6>durée: <h7>40jrs</h7></h6>
+      <h6>revenu: <h7>1400XAF</h7></h6>
+      <h6>revenu total: <h7>56 000XAF</h7></h6>
+    </div>
+  </div>
+  <div class="buy-button">
+    <button onclick="openModal('bol4', 40000, 'a4.jpeg')">
+      <i class="bi bi-cart"></i> Acheter le bol4 maintenant
+    </button>
+  </div>
+
+  <div class="bol-container" id="bol5-container">
+    <img src="a5.jpeg" alt="bol5 image">
+    <div class="bol-details">
+      <h5>bol5</h5>
+      <h6>prix: <h7>50 000XAF</h7></h6>
+      <h6>durée: <h7>40jrs</h7></h6>
+      <h6>revenu: <h7>1750XAF</h7></h6>
+      <h6>revenu total: <h7>70 000XAF</h7></h6>
+    </div>
+  </div>
+  <div class="buy-button">
+    <button onclick="openModal('bol5', 50000, 'a5.jpeg')">
+      <i class="bi bi-cart"></i> Acheter le bol5 maintenant
+    </button>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="purchaseModal" tabindex="-1" aria-labelledby="purchaseModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="purchaseModalLabel">Informations sur le pack</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img id="modal-image" src="" alt="Image du pack" style="width: 100%; height: auto;"/>
+          <p id="modal-info"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+          <button type="button" class="btn btn-primary" id="buy-button">Acheter</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <footer style="background-color: #00bfff; padding: 20px; text-align: center; position: fixed; bottom: 0; width: 100%; box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2); z-index: 1000;">
+    <a href="accueil.html" style="background-color: violet; color: white; padding: 10px 20px; text-decoration: none; border-radius: 20px; margin-right: 10px;">Accueil</a>
+    <a href="revenu.html" style="background-color: violet; color: white; padding: 10px 20px; text-decoration: none; border-radius: 20px; margin-right: 10px;">Revenu</a>
+    <a href="equipe.html" style="background-color: violet; color: white; padding: 10px 20px; text-decoration: none; border-radius: 20px; margin-right: 10px;">Équipe</a>
+    <a href="compte.html" style="background-color: violet; color: white; padding: 10px 20px; text-decoration: none; border-radius: 20px; margin-right: 10px;">Compte</a>
+    <a href="vip.html" style="background-color: violet; color: white; padding: 10px 20px; text-decoration: none; border-radius: 20px;">Bol-VIP</a>
+</footer>
+
+  <!-- Intégration de Swiper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Initialisation de Swiper
+    const swiper = new Swiper('.swiper-container', {
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      slidesPerView: 1,
+      spaceBetween: 10,
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+      },
+    });
+
+    // Fonction pour ouvrir le modal
+    function openModal(bolName, price, image) {
+      document.getElementById('modal-image').src = image;
+      document.getElementById('modal-info').innerText = `Vous allez acheter ${bolName} pour ${price} XAF.`;
+      const purchaseModal = new bootstrap.Modal(document.getElementById('purchaseModal'));
+      purchaseModal.show();
+
+      document.getElementById('buy-button').onclick = function() {
+        const userBalance = 5000; // Exemple de solde utilisateur
+        if (userBalance < price) {
+          alert("Erreur: Votre solde est insuffisant !");
+        } else {
+          alert("Achat réussi !");
+          purchaseModal.hide();
+        }
+      };
+    }
+  </script>
+</body>
+</html>

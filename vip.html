@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello, World!</title>
+  
+  <!-- Lien Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <style>
+    marquee {
+      color: blue;
+    }
+    u {
+      color: red;
+    }
+    .bol-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    .bol-container img {
+      max-width: 120px;
+      height: auto;
+      border-radius: 8px;
+    }
+    .bol-details {
+      margin-left: 20px;
+    }
+    .buy-button button {
+      background-color: #1a73e8;
+      color: white;
+      padding: 10px 30px;
+      border-radius: 50px;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+    }
+    .buy-button button:hover {
+      background-color: red;
+    }
+    .buy-button button i {
+      margin-right: 10px;
+    }
+    /* Styles pour le modal */
+    .modal-content {
+      padding: 20px;
+    }
+    @media (max-width: 576px) {
+      marquee {
+        font-size: 18px;
+      }
+    }
+    /* Style des boutons */
+    .menu {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+      margin-top: 20px;
+    }
+    button {
+      background-color: #1a73e8;
+      border-radius: 20px;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+  span{
+    color:red;
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <center>
+      <marquee>reservation <b><u>VIP</u></b></marquee>
+    </center>
+
+    <div class="bol-container" id="bol4-container">
+      <img src="a4.jpeg" alt="bol4 image">
+      <div class="bol-details">
+        <h5>bol4 VIP</h5>
+        <h6>prix: <span>100 000 XAF</span></h6>
+        <h6>durée: <span>40 jours</span></h6>
+        <h6>revenu: <span>7 500 XAF</span></h6>
+        <h6>revenu total: <span>300 000 XAF</span></h6>
+      </div>
+    </div>
+    <div class="buy-button">
+      <button onclick="openModal('bol4 VIP', 100000, 'a4.jpeg')">
+        <i class="bi bi-cart"></i> Acheter le bol4 VIP maintenant
+      </button>
+    </div>
+
+    <div class="bol-container" id="bol5-container">
+      <img src="a5.jpeg" alt="bol5 image">
+      <div class="bol-details">
+        <h5>bol5 VIP</h5>
+        <h6>prix: <span>300 000 XAF</span></h6>
+        <h6>durée: <span>40 jours</span></h6>
+        <h6>revenu: <span>12 000 XAF</span></h6>
+        <h6>revenu total: <span>480 000 XAF</span></h6>
+      </div>
+    </div>
+    <div class="buy-button">
+      <button onclick="openModal('bol5 VIP', 300000, 'a5.jpeg')">
+        <i class="bi bi-cart"></i> Acheter le bol5 VIP maintenant
+      </button>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="purchaseModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalLabel">Confirmation d'achat</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <img id="modal-image" class="img-fluid" src="" alt="">
+            <p id="modal-info"></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+            <button id="buy-button" type="button" class="btn btn-primary">Confirmer l'achat</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts Bootstrap et Swiper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script>
+    // Initialisation de Swiper
+    const swiper = new Swiper('.swiper-container', {
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      slidesPerView: 1,
+      spaceBetween: 10,
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+      },
+    });
+
+    // Fonction pour ouvrir le modal
+    function openModal(bolName, price, image) {
+      document.getElementById('modal-image').src = image;
+      document.getElementById('modal-info').innerText = `Vous allez acheter ${bolName} pour ${price} XAF.`;
+      const purchaseModal = new bootstrap.Modal(document.getElementById('purchaseModal'));
+      purchaseModal.show();
+
+      document.getElementById('buy-button').onclick = function() {
+        const userBalance = 5000; // Exemple de solde utilisateur
+        if (userBalance < price) {
+          alert("Erreur: Votre solde est insuffisant !");
+        } else {
+          alert("Achat réussi !");
+          purchaseModal.hide();
+        }
+      };
+    }
+  </script>
+</body>
+</html>

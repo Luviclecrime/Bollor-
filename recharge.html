@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payement</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      padding-top: 20px;
+    }
+
+    .recharge {
+      background-color: #1a73e8;
+      border-radius: 20px;
+      padding: 10px;
+      margin-bottom: 20px;
+      position: relative;
+      top: -20px; /* Ajustement pour baisser le titre */
+    }
+
+    .ultime h4 {
+      margin-bottom: 20px;
+    }
+
+    .button button {
+      width: 100px;
+      height: 50px;
+      margin: 5px;
+      border-radius: 20px;
+    }
+
+    .solde {
+      margin-top: 20px;
+    }
+
+    .recuperer input {
+      opacity: 0.7; /* Rend la zone de saisie légèrement invisible */
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    .paye button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #87CEFA; /* Bleu ciel */
+      color: white;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre portée */
+    }
+
+    @media only screen and (max-width: 600px) {
+      .button button {
+        width: 80px;
+        height: 40px;
+      }
+
+      .paye button {
+        width: 100%;
+      }
+    }
+
+    button {
+      background-color: #1a73e8;
+      color: white;
+    }
+
+    /* Application de l'image de fond au div ultime */
+    .container.ultime {
+      background-image: url('a1.jpg');
+      background-size: cover; /* Ajuste l'image pour couvrir le div */
+      background-position: center; /* Centre l'image dans le div */
+      border-radius: 20px;
+      padding: 20px;
+    }
+  h5,h4{
+    color:white;
+  }
+  ul{
+    
+    color:#1a73e8;
+  }
+  </style>
+</head>
+<body>
+  <center>
+    <div class="recharge">
+      <h1>recharge</h1>
+    </div>
+  </center>
+
+  <div class="container ultime">
+    <h4>Méthode de recharge</h4>
+    <div class="button text-center">
+      <button id="bol1" onclick="selectPrice(6000)">6 000</button>
+      <button id="bol2" onclick="selectPrice(15000)">15 000</button>
+      <button id="bol3" onclick="selectPrice(30000)">30 000</button><br>
+      <button id="bol4" onclick="selectPrice(40000)">40 000</button>
+      <button id="bol5" onclick="selectPrice(50000)">50 000</button>
+      <button id="bol6" onclick="selectPrice(100000)">100 000</button><br>
+      <button id="bol7" onclick="selectPrice(200000)">200 000</button>
+      <button id="bol8" onclick="selectPrice(400000)">400 000</button>
+    </div>
+
+    <div class="solde">
+      <h5>Solde disponible: <h4>0.00 XAF</h4></h5>
+    </div>
+
+    <div class="recuperer">
+      <input type="number" placeholder="Entrez un montant personnalisé">
+    </div>
+
+    <div class="paye text-center">
+      <a href="choix.html"><button id="payButton">Payer</button></a>
+    </div>
+  </div>
+  <div>
+    <ul><li>montant minimum de recharge est de 6000XAF</li>
+      <li>les fonts seront crrdité dans votre compte dans les 30min qui suivent</li>
+      <li>veillez contacter le service client officiel en cas de probleme de rchage</li>
+      
+    </ul>
+  </div>
+
+  <script>
+    function selectPrice(price) {
+      const payButton = document.getElementById('payButton');
+      payButton.textContent = 'Payer ' + price + ' XAF';
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choix du réseau</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+      flex-direction: column;
+    }
+
+    .network-choice {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .network-choice div {
+      margin: 10px;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 80%;
+      max-width: 400px;
+    }
+
+    img {
+      margin-right: 10px;
+    }
+
+    input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid #000;
+    }
+
+    /* Styles pour le modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      position: relative;
+      width: 80%;
+      max-width: 400px;
+    }
+
+    .modal-content img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 10px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .copy-btn {
+      margin-left: 10px;
+      padding: 5px 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* Style du bouton téléverser */
+    #televerser-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* Style pour le champ de l'ID de la transaction */
+    #transaction-id {
+      margin-top: 20px;
+      padding: 10px;
+      width: 300px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    /* Style pour le bouton soumettre */
+    #submit-btn {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* Style pour afficher les messages d'erreur */
+    .error-message {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="network-choice">
+    <div class="mtn">
+      <img src="mtn.png" alt="MTN" width="50px" height="50px">
+      <input type="checkbox" id="mtn-checkbox">
+    </div>
+    <div class="orange">
+      <img src="orange.jpg" alt="Orange" width="50px" height="50px">
+      <input type="checkbox" id="orange-checkbox">
+    </div>
+  </div>
+
+  <!-- Champ pour entrer l'ID de la transaction -->
+  <input type="text" id="transaction-id" placeholder="Entrer l'ID de la transaction">
+
+  <!-- Bouton soumettre -->
+  <button id="submit-btn">Soumettre</button>
+
+  <!-- Message d'erreur -->
+  <p id="error-message" class="error-message"></p>
+
+  <!-- Modal MTN -->
+  <div id="mtn-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('mtn-modal')">&times;</span>
+      <img src="mtn.png" alt="MTN">
+      <p>*126*9*676736614*montant#</p>
+      <button class="copy-btn" onclick="copyText('*126*9*654568728*montant#')">Copier</button>
+      <p>Nom du compte : ETIENNE TANGUEDOU</p>
+    </div>
+  </div>
+
+  <!-- Modal Orange -->
+  <div id="orange-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('orange-modal')">&times;</span>
+      <img src="orange.jpg" alt="Orange">
+      <p>*150*11*691452086*montant#</p>
+      <button class="copy-btn" onclick="copyText('*150*11*691452086*montant#')">Copier</button>
+      <p>Nom du compte : STEPHANIE CARINE</p>
+    </div>
+  </div>
+
+  <!-- Bouton de téléversement -->
+  <button id="televerser-btn">Téléverser</button>
+
+  <!-- Input pour choisir le fichier à téléverser -->
+  <input type="file" id="file-upload" style="display:none" accept="image/*">
+  
+  <script>
+    // Fonction pour copier le texte
+    function copyText(text) {
+      const tempInput = document.createElement("input");
+      tempInput.value = text;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand("copy");
+      document.body.removeChild(tempInput);
+    }
+
+    // Fonction pour afficher le modal
+    function showModal(modalId) {
+      document.getElementById(modalId).style.display = "flex";
+    }
+
+    // Fonction pour fermer le modal
+    function closeModal(modalId) {
+      document.getElementById(modalId).style.display = "none";
+    }
+
+    // Gérer l'événement de checkbox MTN
+    document.getElementById("mtn-checkbox").addEventListener("change", function() {
+      if (this.checked) {
+        showModal('mtn-modal');
+      }
+    });
+
+    // Gérer l'événement de checkbox Orange
+    document.getElementById("orange-checkbox").addEventListener("change", function() {
+      if (this.checked) {
+        showModal('orange-modal');
+      }
+    });
+
+    // Gestion du bouton téléverser
+    document.getElementById("televerser-btn").addEventListener("click", function() {
+      document.getElementById("file-upload").click();
+    });
+
+    // Lorsque l'utilisateur choisit un fichier
+    document.getElementById("file-upload").addEventListener("change", function(event) {
+      const file = event.target.files[0];
+      if (file) {
+        console.log("Fichier sélectionné : " + file.name);
+      }
+    });
+
+    // Validation de l'ID de transaction lors de la soumission
+    document.getElementById("submit-btn").addEventListener("click", function() {
+      const transactionId = document.getElementById("transaction-id").value;
+      const errorMessage = document.getElementById("error-message");
+
+      if (transactionId === "") {
+        errorMessage.textContent = "Champ vide, veuillez entrer l'ID de transaction.";
+      } else if (transactionId.length < 5) { // Vous pouvez ajuster cette validation selon vos critères
+        errorMessage.textContent = "ID de transaction incorrect, veuillez saisir un ID valide.";
+      } else {
+        errorMessage.textContent = ""; // Réinitialiser le message d'erreur si tout est correct
+        console.log("ID de transaction soumis : " + transactionId);
+      }
+    });
+  </script>
+</body>
+</html>
