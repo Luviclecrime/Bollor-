@@ -79,12 +79,9 @@
       </div>
     </div>
 
-    <!-- Message de récompense -->
-    
-
     <!-- Zone du lien de parrainage et bouton copier -->
     <div class="my-4">
-      <p>Votre lien de parrainage : <span id="referral-link">https://promtal.netlify.app/</span></p>
+      <p>Votre lien de parrainage : <span id="referral-link"></span></p>
       <button id="copy-btn" class="btn btn-primary copy-btn">Copier le lien</button>
     </div>
   </div>
@@ -92,6 +89,19 @@
   <!-- Inclure le JS Bootstrap et un script pour gérer les invités -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   <script>
+    // Fonction pour générer un identifiant unique aléatoire
+    function generateUniqueId() {
+      return Math.random().toString(36).substr(2, 9); // Génère une chaîne aléatoire de 9 caractères
+    }
+
+    // Assignez un identifiant unique à l'utilisateur
+    const userId = generateUniqueId();
+
+    // Mettez à jour le lien de parrainage avec l'identifiant unique
+    const referralLinkBase = "https://bollor.vercel.app/";
+    const referralLink = referralLinkBase + "?ref=" + userId;
+    document.getElementById('referral-link').textContent = referralLink;
+
     // Vérifie le nombre d'invités depuis le localStorage (doit rester à 0)
     let inviteCount = 0;
     document.getElementById('invite-count').textContent = inviteCount;
@@ -124,7 +134,6 @@
 
     // Copie le lien de parrainage dans le presse-papier
     document.getElementById('copy-btn').addEventListener('click', function() {
-      const referralLink = document.getElementById('referral-link').textContent;
       navigator.clipboard.writeText(referralLink).then(() => {
         alert('Lien copié dans le presse-papier!');
       }).catch(err => {
