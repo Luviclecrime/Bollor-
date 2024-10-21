@@ -37,7 +37,7 @@
       <h3>Share</h3>
       <div class="inner">
         <!-- QR Code inside the inner div -->
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://monsite.com" alt="QR Code">
+        <img id="qrCode" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://bollor.vercel.app/" alt="QR Code">
       </div>
     </div>
 
@@ -76,7 +76,8 @@
   <!-- Custom Script for Copy Function -->
   <script>
     document.getElementById('copyBtn').addEventListener('click', function() {
-      const link = 'https://monsite.com';
+      const userId = Math.floor(Math.random() * 100000); // Génère un ID utilisateur aléatoire
+      const link = `https://bollor.vercel.app/?ref=${userId}`; // Ajoute l'ID à la fin du lien
       navigator.clipboard.writeText(link).then(function() {
         // Show modal on success
         var successModal = new bootstrap.Modal(document.getElementById('successModal'));
@@ -84,8 +85,9 @@
       }, function(err) {
         console.error('Unable to copy: ', err);
       });
+      // Met à jour le QR Code avec le nouveau lien
+      document.getElementById('qrCode').src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(link)}`;
     });
   </script>
-  
 </body>
 </html>
